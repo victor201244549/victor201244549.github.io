@@ -1,0 +1,214 @@
+<!doctype html>
+<html ng-app="BodyApp" >
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <title>Soccer Fantasy</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/docs.min.css" rel="stylesheet"/>
+
+    <meta name="description" content="Responsive website using AngularJS - demo page">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- add styles -->
+    <link href="css/carousel.css" rel="stylesheet" type="text/css" />
+    <link href="css/starter-template.css" rel="stylesheet" type="text/css"/>
+
+
+    <!-- add javascripts -->
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/bootstrap.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+
+
+
+</head>
+ <body>
+  
+    <!--BOTONES -->
+    <div class="navbar-wrapper">
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" ng-click="registro()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="home.html" class="navbar-brand">Soccer Fantasy</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+
+                <!-- USUARIO -->
+
+                 <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" ng-controller="HomeCtrl" ng-click="registro()">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Borrar</a></li>                   
+                </ul> 
+
+                <!-- JUGADOR -->
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jugador <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#" ng-controller="HomeCtrl" ng-click="registro()">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Borrar</a></li>               
+                  </ul>
+                </li>
+
+                <!-- EQUIPO -->
+
+                 <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipo <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" ng-controller="HomeCtrl" ng-click="registro()">Agregar</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Borrar</a></li>  
+              </ul>             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    </div><!-- /.container -->
+
+    <!--CONTENIDO -->
+
+    <div class="jumbotron">
+      <center><h2><b>Editar Jugador</center></b></h1>
+      <center><table>
+        <tr>
+        <td>          
+          <table class="table table-hover">
+          <br>
+
+            <!--EQUIPOS -->
+            <tr>
+            <td></td>
+            <td>Equipo:</td>
+              <td>
+                  <select ng-controller="TeamCtrl" id="team" class="form-control">
+                  <option ng-repeat="team in equipos">{{team}}</option>
+                </select>
+              </td>  
+          </tr>
+
+          <!--NOMBRE -->
+
+         <tr>
+            <td></td>
+            <td>Jugador:</td>
+              <td>
+                  <select id="jugador" class="form-control">                
+                </select>
+              </td>  
+          </tr>   
+
+        <!--POSICION -->
+         <tr>
+            <td></td>
+         <td>Posición:</td>
+              <td>
+                  <select id="position" class="form-control">
+                     <option>Goalkeeper</option>
+                     <option>Defender</option>
+                     <option>Midfielder</option>
+                     <option>Forward</option>
+                  </select>
+              </td>  
+        </tr>
+
+        <!--PRECIO -->
+
+        <tr>
+            <td></td>
+         <td>Precio:</td>
+              <td>
+                  <select id="price" class="form-control">
+                     <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
+                     <option>6</option>
+                     <option>7</option>
+                     <option>8</option>
+                     <option>9</option>
+                     <option>10</option>
+                     <option>11</option>
+                     <option>12</option>
+                     <option>13</option>
+                     <option>14</option>
+                     <option>15</option>
+                  </select>
+              </td>  
+        </tr>
+
+         <!--CLAVE ADMIN -->
+
+          <tr>
+            <td></td>
+            <td>Clave Admin:</td>  
+            <td><input type="password" id="password" class="form-control" ng-model="clave" maxlength="200" size="50" required></td>
+          </tr>
+        </tr>
+
+        </table>
+        </td>
+        </tr>
+
+        <!--FIN TABLA -->
+
+      </table></center>
+      <center>
+      <button id="editarJugador" class="btn btn-lg btn-success">Editar</button>  
+    </center>
+    </div>
+          </div> <!-- /container --> 
+
+    <div id="error" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Lo sentimos ocurrió un error inesperado inténtalo de nuevo
+    </div>
+  </div>
+</div>
+
+<div id="errorDatos" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Los datos son incorrectos
+    </div>
+  </div>
+</div>
+
+<div id="exito" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Los datos fueron guardados exitosamente
+    </div>
+  </div>
+</div>
+
+<div id="campos" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      Todos los campos son necesarios
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
