@@ -29,6 +29,7 @@
 </head>
  <body>
   
+        
     <!--BOTONES -->
     <div class="navbar-wrapper">
       <div class="container">
@@ -41,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a href="home.html" class="navbar-brand">Soccer Fantasy</a>
+              <a href="index.html" class="navbar-brand">Soccer Fantasy</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -51,9 +52,8 @@
                  <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#" ng-controller="HomeCtrl" ng-click="registro()">Agregar</a></li>
-                    <li><a href="#">Editar</a></li>
-                    <li><a href="#">Borrar</a></li>                   
+                    <li><a href="registrarUsuario.html">Agregar</a></li>
+                    <li><a href="borrarUsuario.html">Borrar</a></li>                   
                 </ul> 
 
                 <!-- JUGADOR -->
@@ -61,9 +61,11 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jugador <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                     <li><a href="#" ng-controller="HomeCtrl" ng-click="registro()">Agregar</a></li>
-                    <li><a href="#">Editar</a></li>
-                    <li><a href="#">Borrar</a></li>               
+                     <li><a href="agregarJugador.html" ng-controller="HomeCtrl">Agregar</a></li>
+                    <li><a href="editarJugador.html">Editar</a></li>
+                    <li><a href="borrarJugador.html">Borrar</a></li>
+                    <li><a href="editarEstadisticas.html">Editar Estadísticas</a></li>
+                     <li><a href="borrarEstadisticas.html">Borrar Estadísticas</a></li>                 
                   </ul>
                 </li>
 
@@ -72,18 +74,57 @@
                  <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Equipo <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#" ng-controller="HomeCtrl" ng-click="registro()">Agregar</a></li>
-                    <li><a href="#">Editar</a></li>
-                    <li><a href="#">Borrar</a></li>  
+                    <li><a href="agregarEquipo.html">Agregar</a></li>
+                    <li><a href="borrarEquipo.html">Borrar</a></li>  
+                  </ul>
+                </li>
+
+                    <!--FANTASY -->
+
+                     <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fantasy <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="borrarFantasy.html">Borrar</a></li>
+                     </ul>
+                </li>
+
+                    <!-- LIGAS -->
+
+                     <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ligas <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="borrarLiga.html">Borrar</a></li>
+                     </ul>
+                </li>
+
+                        <!-- FECHAS -->
+
+                     <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fechas <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="agregarFecha.html">Agregar</a></li>
+                    <li><a href="editarFecha.html">Editar</a></li>
+                    <li><a href="borrarFecha.html">Borrar</a></li>
+                     </ul>
+                </li>
+
+                  <!-- PARTIDOS -->
+
+                     <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partidos <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="agregarPartido.html">Agregar</a></li>
+                    <li><a href="editarPartido.html">Editar</a></li>
+                    <li><a href="borrarPartido.html">Borrar</a></li>
+                     </ul>
+                </li>
+
               </ul>             
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-    </div><!-- /.container -->
 
     <!--CONTENIDO -->
 
