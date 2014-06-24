@@ -14,11 +14,13 @@ app.config(['$httpProvider',function($httpProvider){
 var StoretoEdit = null;
 var Cancelado = true;
 var ReceiptToEdit = null;
+var ProductValues = [];
 
 function StoreEditCtrl($scope,$http) {   
 
 	$scope.stores = [];
-	$scope.storeIM = [];
+	$scope.receipts = [];
+	$scope.productsAmount = [];
 
 
 	$scope.fillStoreOptions = function(data)
@@ -68,10 +70,9 @@ function StoreEditCtrl($scope,$http) {
     $scope.getStoreData = function(index)
     {    	
 		StoretoEdit = $scope.stores[index];
-		var storeIM = Parse.Object.extend("StoreInventoryMovement");
-	    var query = new Parse.Query(storeIM);
+		var receipt = Parse.Object.extend("Receipt");
+	    var query = new Parse.Query(receipt);
 	    query.equalTo("Store", StoretoEdit);	    
-	    query.equalTo("Type","Salida");
 	    query.descending("createdAt");				
 		query.find({
 			success: function(results) {
@@ -93,33 +94,113 @@ function StoreEditCtrl($scope,$http) {
 		}		
 		//alert("Fill player");
 		var lista = data;
-		$scope.storeIM = [];		
+		$scope.receipts = [];		
 		for(var i=0;i<lista.length;i++)
 		{
-			$scope.storeIM.push(lista[i]);
+			$scope.receipts.push(lista[i]);
 		}
 		var sel = document.getElementById('receipt');
-		for(var i = 0; i < $scope.storeIM.length; i++) {
+		for(var i = 0; i < $scope.receipts.length; i++) {
 		    var opt = document.createElement('option');
 		    opt.innerHTML = i+1;
 		    opt.value = i+1;
 		    sel.appendChild(opt);
 		}
 
-		if($scope.storeIM.length>0)
+		if($scope.receipts.length>0)
 		{
-			$scope.getStoreIMData(0);
+			$scope.getReceiptsData(0);
 		}
 	}
 
-	$scope.getStoreIMData = function(index)
+	$scope.getReceiptsData = function(index)
 	{
-		var reciboL = $scope.storeIM[index].get("ReceiptLine");
+		/*var reciboL = $scope.storeIM[index].get("ReceiptLine");
 		$scope.getReceiptLineData(reciboL);
 		var producto = $scope.storeIM[index].get("Product");
 		$scope.getProductData(producto);
 		var cantidad = $scope.storeIM[index].get("Amount");
-		$('#amount').val(cantidad);
+		$('#amount').val(cantidad);*/
+		$scope.getSellerData($scope.receipts[index].get("Seller"));
+		$scope.getClientData($scope.receipts[index].get("Client"));
+		$scope.getPaidData($scope.receipts[index].get("Paid"))
+		$scope.getReceiptLineData($scope.receipts[index]);
+	}
+
+	$scope.getReceiptLineData = function(recibo)
+	{
+		var receiptLine = Parse.Object.extend("ReceiptLine");
+	    var query = new Parse.Query(receiptLine);
+	    query.equalTo("Receipt",recibo);	    
+	    query.descending("createdAt");				
+		query.find({
+			success: function(results) {
+				//console.log(results);
+				//$scope.fillProducts(results);
+				//console.log(results.length);
+				//$('#salidas').val(results.length);
+				$scope.setReceiptLineData(results);
+			}
+		});
+	}		
+
+	$scope.setReceiptLineData = function(resultLines)
+	{
+		$scope.fillProducts(resultLines);
+	}
+
+	$scope.fillProducts = function(data)
+	{
+		ProductValues = [];
+		$scope.productsAmount = [];
+		var select = document.getElementById('product');
+		var length = select.options.length;
+		for (i = 0; i < length; i++) {
+			 select.remove(select.options[i]);
+		}		
+		//alert("Fill player");
+		var lista = data;
+		$scope.products = [];		
+		for(var i=0;i<lista.length;i++)
+		{
+			$scope.products.push(lista[i].get("Product"));
+			$scope.productsAmount.push(lista[i].get("ProductAmount"));
+		}
+		var sel = document.getElementById('product');
+		var amount = 0;
+		for(var i = 0; i < $scope.products.length;i++) {
+			//alert(i);
+			var info = $scope.products[i];	
+		    	info.fetch({
+				  success: function(info) {	
+					  $scope.setTags(info.get("Name"));
+				}
+			 	});	    	
+	    }
+
+		if ($scope.products.length > 0)
+			$scope.setProductInfo(0);
+
+	}
+
+	$scope.setTags=function(value)
+	{
+		//console.log(ProductValues);
+		if(!(ProductValues.indexOf(value) >= 0))
+		{
+			//console.log(value);
+			var sel = document.getElementById('product');
+			var opt = document.createElement('option');
+			opt.innerHTML = value;
+		    opt.value = value;
+			sel.appendChild(opt);
+			ProductValues.push(value);			
+		}
+	}	
+
+	$scope.setProductInfo = function(index)
+	{
+		$('#amount').val($scope.productsAmount[index]);
 	}
 
 	$scope.getProductData = function(product)
@@ -131,17 +212,7 @@ function StoreEditCtrl($scope,$http) {
 				}
 			 	});	 
 	}
-
-	$scope.getReceiptLineData = function(reciboL)
-	{
-		var info = reciboL;	
-		    	info.fetch({
-				  success: function(recibo) {	
-					  $scope.getReceiptData(recibo.get("Receipt"));
-				}
-			 	});	 
-	}
-
+	
 	$scope.getReceiptData = function(recibo)
 	{
 		var info = recibo;
@@ -196,7 +267,11 @@ function StoreEditCtrl($scope,$http) {
 	});
 
 	$('#receipt').on("change",function() {
-   		$scope.getStoreIMData($(this).prop("selectedIndex")); 
+   		$scope.getReceiptsData($(this).prop("selectedIndex")); 
+	});
+
+	$('#product').on("change",function() {
+   		$scope.setProductInfo($(this).prop("selectedIndex")); 
 	});
 }
 
