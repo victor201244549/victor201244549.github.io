@@ -15,6 +15,7 @@ var StoretoEdit = null;
 var Cancelado = true;
 var ReceiptToEdit = null;
 var ProductValues = [];
+var TotalPago = 0;
 
 function StoreEditCtrl($scope,$http) {   
 
@@ -351,7 +352,7 @@ function ClientCtrl($scope,$http) {
     $scope.getReceiptData = function(receipts)
     {
     	var pagados = 0;
-    	var debe = 0;
+    	var debe = 0;    	
     	for(var i=0; i<receipts.length;i++)
     	{
     		var info = receipts[i];	
@@ -359,9 +360,13 @@ function ClientCtrl($scope,$http) {
 				  success: function(info) {	
 					  if(info.get("Paid"))
 					  {
-					  	pagados+=1;
+					  	pagados+=1;					  	
 					  }
-					  else debe+=1;
+					  else 
+					  {
+					  	debe+=1;
+					  	$scope.obtenerDeuda(info);					  	
+					  }
 					  $scope.actualizarPagos(pagados,debe);
 				}
 			 	});	 
@@ -374,7 +379,53 @@ function ClientCtrl($scope,$http) {
 		$('#debt').val(debe);    	
     }
 
+    $scope.obtenerDeuda = function (receipt1)
+    {
+    	var receiptLines = Parse.Object.extend("ReceiptLine");
+        var query = new Parse.Query(receiptLines);
+        query.equalTo("Receipt",receipt1);
+        query.find({
+          success: function(receipt) {
+          	$scope.setDebt(receipt);
+		},
+		 error: function(object, error) {
+            alert("error");
+            // The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and description.
+          }		
+		});
+    }
+
+    $scope.setDebt = function(receiptLines)
+    {    	
+    	for(var i = 0; i < receiptLines.length; i++)
+    	{
+    		var product = receiptLines[i].get("Product");
+    		var amount = receiptLines[i].get("ProductAmount");  
+		    $scope.getProductPrice(product,amount);
+    	}
+    }
+
+    $scope.getProductPrice = function(product,amount)
+    {
+    	product.fetch({
+				  success: function(producto) {					  	
+					  var pago = producto.get("Price")*amount;
+					  $scope.actualizarDeuda(pago);
+				}
+		});
+			
+    }
+
+    $scope.actualizarDeuda = function(pago)
+    {
+    	TotalPago+=pago;
+    	$('#totalDebt').val(TotalPago/2); 
+    }
+
      $('#client').on("change",function() {
+     	TotalPago = 0;
+     	$('#totalDebt').val(0); 
    		$scope.setClientInfo($(this).prop("selectedIndex")); 
 	});
 
