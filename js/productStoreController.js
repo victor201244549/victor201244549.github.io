@@ -187,7 +187,10 @@ function StoreEditCtrl($scope,$http) {
 $(function() {
       $("#agregarProductoTienda").click( function()
            {
-
+           	var amount = $("#amount").val();
+				    	if (amount==null)
+				    		amount = 0;
+			 amount = parseInt(amount);
              Parse.initialize("i3ygHQgeFpeMxLId6XNpL1SspvgVezbrimLGRLrs","EbtLgXi6Bu2OCDwx8GcrZWm8F6ZnYYeVkaXfuvh9");
              var storeID = Parse.Object.extend("StoreInventoryDetail");
 	            var query = new Parse.Query(storeID);
@@ -201,11 +204,11 @@ $(function() {
 	          		storeIM.set("Store",StoreSelected);
 	          		storeIM.set("Product",ProductSelected);
 	          		storeIM.set("Type","Entrada");
-	          		storeIM.set("Amount",1);
+	          		storeIM.set("Amount",amount);
 	          		storeIM.save(null, {
 			              success: function(store) {
 			                // Execute any logic that should take place after the object is saved.
-			                alert("Se ha agregado este nuevo producto");
+			                alert("Se ha hecho un movimiento con este producto");
 			              },
 			              error: function(store, error) {
 			                // Execute any logic that should take place if the save fails.
@@ -214,8 +217,11 @@ $(function() {
 			              }
 			            });
 				    if(comments.length>0)
-				    {
-				    	comments[0].set("ProductAmount",comments[0].get("ProductAmount")+1);
+				    {				    	
+				    	console.log(amount);
+				    	console.log(comments[0].get("ProductAmount"));
+				    	console.log(comments[0].get("ProductAmount")+amount);
+				    	comments[0].set("ProductAmount",comments[0].get("ProductAmount")+amount);
 				    	comments[0].save(null, {
 			              success: function(store) {
 			                // Execute any logic that should take place after the object is saved.
@@ -235,7 +241,7 @@ $(function() {
 				    	var storeID = new StoreID();				    	
 	          			storeID.set("Product",ProductSelected);
 	          			storeID.set("Store",StoreSelected);
-	          			storeID.set("ProductAmount",1);
+	          			storeID.set("ProductAmount",amount);
 			            storeID.save(null, {
 			              success: function(store) {
 			                // Execute any logic that should take place after the object is saved.
