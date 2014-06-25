@@ -17,6 +17,7 @@ function InventoryCtrl($scope,$http) {
 
 	$scope.stores = [];
 	$scope.products = [];
+	$scope.productsId = [];
 
 
 	$scope.fillStoreOptions = function(data)
@@ -29,6 +30,7 @@ function InventoryCtrl($scope,$http) {
 		//alert("Fill player");
 		var lista = data;
 		$scope.stores = [];		
+
 		for(var i=0;i<lista.length;i++)
 		{
 			$scope.stores.push(lista[i]);
@@ -65,6 +67,7 @@ function InventoryCtrl($scope,$http) {
 
     $scope.fillProducts = function(data)
 	{
+		ProductValues = [];
 		var select = document.getElementById('product');
 		var length = select.options.length;
 		for (i = 0; i < length; i++) {
@@ -72,21 +75,34 @@ function InventoryCtrl($scope,$http) {
 		}		
 		//alert("Fill player");
 		var lista = data;
-		$scope.products = [];		
+		$scope.products = [];
+		$scope.productsId = [];
 		for(var i=0;i<lista.length;i++)
 		{
 			$scope.products.push(lista[i].get("Product"));
-		}
+			$scope.productsId.push(lista[i].get("Product").id);
+			//console.log(lista[i].get("Product").id);
+		}		
+		//console.log($scope.products.length);
 		var sel = document.getElementById('product');
 		var amount = 0;
+		$scope.fillOptions($scope.products.length);
+
+
 		for(var i = 0; i < $scope.products.length;i++) {
 			//alert(i);
-			var info = $scope.products[i];	
-		    	info.fetch({
-				  success: function(info) {	
-					  $scope.setTags(info.get("Name"));
-				}
-			 	});	    	
+			var info = $scope.products[i];
+
+			info.fetch().then(function(fetched){
+		    	//response.success("response is undefined");
+		    	$scope.setTags(fetched.id,fetched.get("Name"));
+		    });
+		    	//info.fetch({
+				  //success: function(info) {	
+					//  $scope.setTags(info.get("Name"),listaProductos[i]);
+
+//				}
+//			 	});	    	
 	    }
 
 		if ($scope.products.length > 0)
@@ -94,12 +110,24 @@ function InventoryCtrl($scope,$http) {
 
 	}
 
-	$scope.setTags=function(value)
+	$scope.setTags= function(product,name)
 	{
-		console.log(ProductValues);
+		//console.log($scope.productsId);
+		//console.log(product);
+		var index = $scope.productsId.indexOf(product);
+		
+		var select = document.getElementById('product');
+		select.options[index].value = name;
+		select.options[index].text = name;
+	}
+
+	/*$scope.setTags=function(value,i)
+	{
+		//console.log("i:");
+		//console.log(i);
 		if(!(ProductValues.indexOf(value) >= 0))
 		{
-			console.log(value);
+			//console.log(value);
 			var sel = document.getElementById('product');
 			var opt = document.createElement('option');
 			opt.innerHTML = value;
@@ -107,7 +135,20 @@ function InventoryCtrl($scope,$http) {
 			sel.appendChild(opt);
 			ProductValues.push(value);
 		}
-	}	
+	}*/	
+
+	$scope.fillOptions = function(largo)
+	{
+		var value = "hola";
+		for(var i = 0; i < largo; i++)
+		{
+			var sel = document.getElementById('product');
+			var opt = document.createElement('option');
+			opt.innerHTML = value;
+			opt.value = value;
+			sel.appendChild(opt);
+		}					
+	}
 
 	$scope.setProductInfo = function(index)
 	{
