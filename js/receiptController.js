@@ -122,6 +122,7 @@ function StoreEditCtrl($scope,$http) {
 		$scope.getProductData(producto);
 		var cantidad = $scope.storeIM[index].get("Amount");
 		$('#amount').val(cantidad);*/
+		ReceiptToEdit = $scope.receipts[index];
 		$scope.getSellerData($scope.receipts[index].get("Seller"));
 		$scope.getClientData($scope.receipts[index].get("Client"));
 		$scope.getPaidData($scope.receipts[index].get("Paid"))
@@ -333,6 +334,7 @@ function ClientCtrl($scope,$http) {
 
     $scope.getReceipts = function(client)
 	{	
+		$('#totalDebt').val(0); 
 		Parse.initialize("i3ygHQgeFpeMxLId6XNpL1SspvgVezbrimLGRLrs","EbtLgXi6Bu2OCDwx8GcrZWm8F6ZnYYeVkaXfuvh9");
 		var receipt = Parse.Object.extend("Receipt");
         var query = new Parse.Query(receipt);
@@ -435,7 +437,8 @@ function ClientCtrl($scope,$http) {
 $(function() {
       $("#cancelarRecibo").click( function()
            {
-
+           	console.log(Cancelado);
+           	console.log(ReceiptToEdit==null);
            	if (!Cancelado && ReceiptToEdit!=null)   
            	{        	 	
 	            Parse.initialize("i3ygHQgeFpeMxLId6XNpL1SspvgVezbrimLGRLrs","EbtLgXi6Bu2OCDwx8GcrZWm8F6ZnYYeVkaXfuvh9");
