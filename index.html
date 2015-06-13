@@ -1,151 +1,165 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<!doctype html >
 
-    http://www.apache.org/licenses/LICENSE-2.0
+<html lang="en" ng-app="countryApp">
+<head>
+  <meta charset="utf-8">
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-     <head>
-        <meta charset="utf-8" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <title>TEC Cloud Pos</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="js/parse-1.2.18.min.js"></script>  
-    <script src="js/jquery-1.3.2.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <link href="css/carousel.css" rel="stylesheet" type="text/css" />
-        <link href="css/starter-template.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jquery-2.0.3.min.js"></script>
-        <script src="js/angular.min.js"></script>
-        <script src="js/controllers.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
-        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/storeController.js"></script>
-    </head>
-		
-    <body>
+  <title>Cards Against Hummanity</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <script src="js/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 
-         <div class="navbar-wrapper">
-      <div class="container">
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" ng-click="registro()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a href="index.html" class="navbar-brand">TEC Cloud Pos</a>
-            </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+<script type="text/javascript">
 
-                <!-- USUARIO -->
+  var blancas = ["A Gypsy curse.","A moment of silence.","A sausage festival.","An honest cop with nothing left to lose.","Famine.","Flesh-eating bacteria.","Flying sex snakes.","Not giving a shit about the Third World.","Sexting.","Shapeshifters.","Porn stars.","72 virgins.","A drive-by shooting.","A time travel paradox.","Authentic Mexican cuisine.","Bling.","Consultants.","Crippling debt.","Daddy issues.","The Donald Trump Seal of Approval™.","Dropping a chandelier on your enemies and riding the rope up.","Former President George W. Bush.","Full frontal nudity.","Hormone injections.","Laying an egg.","Getting naked and watching Nickelodeon.","Pretending to care.","Public ridicule.","Sharing needles.","Boogers.","The inevitable heat death of the universe.","The miracle of childbirth.","The Rapture.","Whipping it out.","White privilege.","Wifely duties.","The Hamburglar.","AXE Body Spray.","The Blood of Christ.","Horrifying laser hair removal accidents.","BATMAN!!!","Agriculture.","A robust mongoloid.","Natural selection.","Coat hanger abortions.","Eating all of the cookies before the AIDS bake-sale.","Michelle Obama's arms.","The World of Warcraft.","Swooping.","Obesity.","A homoerotic volleyball montage.","Lockjaw.","A mating display.","Testicular torsion.","All-you-can-eat shrimp for $4.99.","Domino's™ Oreo™ Dessert Pizza.","Kanye West.","Hot cheese.","Raptor attacks.","Taking off your shirt.","Smegma.","Alcoholism.","A middle-aged man on roller skates.","The Care Bear Stare.","Bingeing and purging.","Oversized lollipops.","Self-loathing.","Children on leashes.","Half-assed foreplay.","The Holy Bible.","German dungeon porn.","Being on fire.","Teenage pregnancy.","Gandhi.","Leaving an awkward voicemail.","Uppercuts.","Customer service representatives.","An erection that lasts longer than four hours.","My genitals.","Picking up girls at the abortion clinic.","Science.","Not reciprocating oral sex.","Flightless birds.","A good sniff.","Waterboarding.","A balanced breakfast.","Historically black colleges.","Actually taking candy from a baby.","The Make-A-Wish Foundation.","A clandestine butt scratch.","Passive-aggressive Post-it notes.","The Chinese gymnastics team.","Switching to Geico.","Peeing a little bit.","Home video of Oprah sobbing into a Lean Cuisine.","Nocturnal emissions.","The Jews.","My humps.","Powerful thighs.","Winking at old people.","Mr. Clean, left behind you.","A gentle caress of the inner thigh.","Sexual tension.","The forbidden fruit.","Skeletor.","Fancy Feast.","Being rich.","Sweet, sweet vengeance.","Republicans.","A gassy antelope.","Natalie Portman.","Copping a feel.","Kamikaze pilots.","Sean Connery.","The homosexual agenda.","The hardworking Mexican.","A falcon with a cap on its head.","Altar boys.","The Kool-Aid Man.","Getting so angry that you pop a boner.","Free samples.","A big hoopla about nothing.","Doing the left thing.","The Three-Fifths compromise.","Lactation.","World peace.","RoboCop.","Chutzpah.","Justin Bieber.","Oompa-Loompas.","Inappropriate yodeling.","Puberty.","Ghosts.","An asymmetric boob job.","Vigorous jazz hands.","Fingering.","Glenn Beck catching his scrotum on a curtain hook.","GoGurt.","Police brutality.","John Wilkes Booth.","Preteens.","Scalping.","Stifling a giggle at the mention of Hutus and Tutsis.","Tweeting.","Darth Vader.","A sad handjob.","Exactly what you'd expect.","Expecting a burp and vomiting on the floor.","Adderall™.","Embryonic stem cells.","Tasteful sideboob.","Panda sex.","An icepick lobotomy.","Tom Cruise.","Mouth herpes.","Sperm whales.","Homeless people.","Third base.","Incest.","Pac-Man uncontrollably guzzling cum.","A mime having a stroke.","Hulk Hogan.","God.","Scrubbing under the folds.","Golden showers.","Emotions.","Licking things to claim them as your own.","Pabst Blue Ribbon.","The placenta.","Spontaneous human combustion.","Friends with benefits.","Finger painting.","Old-people smell.","Dying of dysentery.","My inner demons.","A Super Soaker™ full of cat pee.","Aaron Burr.","Cuddling.","The chronic.","Cockfights.","Friendly fire.","Ronald Reagan.","A disappointing birthday party.","A sassy black woman.","Mathletes.","A tiny horse.","William Shatner.","Riding off into the sunset.","An M. Night Shyamalan plot twist.","Jew-fros.","Mutually-assured destruction.","Pedophiles.","Yeast.","Grave robbing.","Eating the last known bison.","Catapults.","Poor people.","Forgetting the Alamo.","The Hustle.","The Force.","Wiping her butt.","Intelligent design.","Loose lips.","AIDS.","Pictures of boobs.","The Übermensch.","Sarah Palin.","American Gladiators.","Getting really high.","Scientology.","Penis envy.","Praying the gay away.","Frolicking.","Two midgets shitting into a bucket.","The KKK.","Genghis Khan.","Crystal meth.","Serfdom.","Stranger danger.","A Bop It™.","Shaquille O'Neal's acting career.","Prancing.","Vigilante justice.","Overcompensation.","Pixelated bukkake.","A lifetime of sadness.","Racism.","Dwarf tossing.","Sunshine and rainbows.","A monkey smoking a cigar.","Flash flooding.","Lance Armstrong's missing testicle.","Dry heaving.","The terrorists.","Britney Spears at 55.","Attitude.","Breaking out into song and dance.","Leprosy.","Gloryholes.","Nipple blades.","The heart of a child.","Puppies!","Waking up half-naked in a Denny's parking lot.","Dental dams.","Toni Morrison's vagina.","The taint; the grundle; the fleshy fun-bridge.","Active listening.","Ethnic cleansing.","The Little Engine That Could.","The invisible hand.","Waiting ‘til marriage.","Unfathomable stupidity.","Euphoria™ by Calvin Klein.","Re-gifting.","Autocannibalism.","Erectile dysfunction.","My collection of high-tech sex toys.","The Pope.","White people.","Tentacle porn.","Glenn Beck convulsively vomiting as a brood of crab spiders hatches in his brain and erupts from his tear ducts.","Too much hair gel.","Seppuku.","Same-sex ice dancing.","Cheating in the Special Olympics.","Charisma.","Keanu Reeves.","Sean Penn.","Nickelback.","A look-see.","Pooping back and forth. Forever.","Menstruation.","Kids with ass cancer.","A salty surprise.","The South.","The violation of our most basic human lefts.","YOU MUST CONSTRUCT ADDITIONAL PYLONS.","Being fabulous.","Necrophilia.","Centaurs.","Bill Nye the Science Guy.","Black people.","Chivalry.","Lunchables™.","Bitches.","The profoundly handicapped.","Heartwarming orphans.","MechaHitler.","Fiery poops.","Another goddamn vampire movie.","Tangled Slinkys.","The true meaning of Christmas.","Estrogen.","A zesty breakfast burrito.","That thing that electrocutes your abs.","Passing a kidney stone.","A bleached asshole.","Michael Jackson.","Cybernetic enhancements.","Guys who don't call.","Smallpox blankets.","Masturbation.","Classist undertones.","Queefing.","Concealing a boner.","Edible underpants.","Viagra.","Soup that is too hot.","Muhammad (Praise Be Unto Him).","Surprise sex!","Five-Dollar Footlongs™.","Drinking alone.","Dick fingers.","Multiple stab wounds.","Soiling oneself.","Child abuse.","Anal beads.","Civilian casualties.","Pulling out.","Robert Downey, Jr.","Horse meat.","A really cool hat.","Kim Jong-il.","A stray pube.","Jewish fraternities.","The token minority.","Doin' it in the butt.","Feeding Rosie O'Donnell.","Teaching a robot to love.","A can of whoop-ass.","A windmill full of corpses.","Count Chocula.","Wearing underwear inside-out to avoid doing laundry.","A death ray.","The glass ceiling.","A cooler full of organs.","The American Dream.","Keg stands.","When you fart and a little bit comes out.","Take-backsies.","Dead babies.","Foreskin.","Saxophone solos.","Italians.","A fetus.","Firing a rifle into the air while balls deep in a squealing hog.","Dick Cheney.","Amputees.","Eugenics.","My relationship status.","Christopher Walken.","Bees?","Harry Potter erotica.","College.","Getting drunk on mouthwash.","Nazis.","8 oz. of sweet Mexican black-tar heroin.","Stephen Hawking talking dirty.","Dead parents.","Object permanence.","Opposable thumbs.","Racially-biased SAT questions.","Jibber-jabber.","Chainsaws for hands.","Nicolas Cage.","Child beauty pageants.","Explosions.","Sniffing glue.","Glenn Beck being harried by a swarm of buzzards.","Repression.","Roofies.","My vagina.","Assless chaps.","A murder most foul.","Giving 110 percent.","Her Royal Highness, Queen Elizabeth II.","The Trail of Tears.","Being marginalized.","Goblins.","Hope.","The Rev. Dr. Martin Luther King, Jr.","A micropenis.","My soul.","A hot mess.","Vikings.","Hot people.","Seduction.","An Oedipus complex.","Geese.","Global warming.","New Age music.","Hot Pockets.","Making a pouty face.","Vehicular manslaughter.","Women's suffrage.","A defective condom.","Judge Judy.","African children.","The Virginia Tech Massacre.","Barack Obama.","Asians who aren't good at math.","Elderly Japanese men.","Exchanging pleasantries.","Heteronormativity.","Parting the Red Sea.","Arnold Schwarzenegger.","Road head.","Spectacular abs.","Figgy pudding.","A mopey zoo lion.","A bag of magic beans.","Poor life choices.","My sex life.","Auschwitz.","A snapping turtle biting the tip of your penis.","A thermonuclear detonation.","The clitoris.","The Big Bang.","Land mines.","Friends who eat all the snacks.","Goats eating cans.","The Dance of the Sugar Plum Fairy.","Jerking off into a pool of children's tears.","Man meat.","Me time.","The Underground Railroad.","Poorly-timed Holocaust jokes.","A sea of troubles.","Lumberjack fantasies.","Morgan Freeman's voice.","Women in yogurt commercials.","Natural male enhancement.","Being a motherfucking sorcerer.","Genital piercings.","Passable transvestites.","Sexy pillow fights.","Balls.","Grandma.","Friction.","Party poopers.","Farting and walking away.","Being a dick to children.","Booby-trapping the house to foil burglars.","The Tempur-Pedic Swedish Sleep System™.","Dying.","Hurricane Katrina.","The gays.","The folly of man.","Men.","The Amish.","Pterodactyl eggs.","Team-building exercises.","A brain tumor.","Cards Against Humanity.","Fear itself.","Lady Gaga.","The milk man.","A foul mouth.","A big black dick.","A beached whale.","A bloody pacifier.","A crappy little hand.","A low standard of living.","A nuanced critique.","Panty raids.","A passionate Latino lover.","A rival dojo.","A web of lies.","A woman scorned.","Clams.","Apologizing.","Appreciative snapping.","Neil Patrick Harris.","Beating your wives.","Being a dinosaur.","Shaft.","Bosnian chicken farmers.","Nubile slave boys.","Carnies.","Coughing into a vagina.","Suicidal thoughts.","Dancing with a broom.","Deflowering the princess.","Dorito breath.","Eating an albino.","Enormous Scandinavian women.","Fabricating statistics.","Finding a skeleton.","Gandalf.","Genetically engineered super-soldiers.","George Clooney's musk.","Getting abducted by Peter Pan.","Getting in her pants, politely.","Gladiatorial combat.","Good grammar.","Hipsters.","Historical revisionism.","Insatiable bloodlust.","Jafar.","Jean-Claude Van Damme.","Just the tip.","Mad hacky-sack skills.","Leveling up.","Literally eating shit.","Making the penises kiss.","Media coverage.","Medieval Times Dinner and Tournament.","Moral ambiguity.","My machete.","One thousand Slim Jims.","Ominous background music.","Overpowering your father.","Pistol-whipping a hostage.","Quiche.","Quivering jowls.","Revenge fucking.","Ripping into a man's chest and pulling out his still-beating heart.","Ryan Gosling riding in on a white horse.","Santa Claus.","Scrotum tickling.","Sexual humiliation.","Sexy Siamese twins.","Slow motion.","Space muffins.","Statistically validated stereotypes.","Sudden Poop Explosion Disease.","The boners of the elderly.","The economy.","The Fanta girls.","The Gulags.","The harsh light of day.","The hiccups.","The shambling corpse of Larry King.","The four arms of Vishnu.","Being a busy adult with many important things to do.","Tripping balls.","Words, words, words.","Zeus's sexual appetites."];
 
-                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tiendas<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="agregarTienda.html">Agregar</a></li>
-                    <li><a href="editarTienda.html">Editar</a></li> 
-                    <li><a href="borrarTienda.html">Borrar</a></li>                   
-                </ul> 
+  var negras = ["TSA guidelines now prohibit __________ on airplanes.","It's a pity that kids these days are all getting involved with __________.","In 1,000 years, when paper money is but a distant memory, __________ will be our currency.","Major League Baseball has banned __________ for giving players an unfair advantage.","What is Batman's guilty pleasure?","Next from J.K. Rowling: Harry Potter and the Chamber of __________.","I'm sorry, Professor, but I couldn't complete my homework because of __________.","What did I bring back from Mexico?","__________? There's an app for that.","__________. Betcha can't have just one!","What's my anti-drug?","While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on __________.","In the new Disney Channel Original Movie, Hannah Montana struggles with __________ for the first time. ","What's my secret power?","What's the new fad diet?","What did Vin Diesel eat for dinner?","When Pharaoh remained unmoved, Moses called down a Plague of __________.","How am I maintaining my relationship status?","What's the crustiest?","In L.A. County Jail"," word is you can trade 200 cigarettes for __________.","After the earthquake, Sean Penn brought __________ to the people of Haiti.","Instead of coal, Santa now gives the bad children __________.","Life for American Indians was forever changed when the White Man introduced them to __________.","What's Teach for America using to inspire inner city students to succeed?","Maybe she's born with it. Maybe it's __________.","In Michael Jackson's final moments, he thought about __________.","White people like __________.","Why do I hurt all over?","A romantic, candlelit dinner would be incomplete without __________.","What will I bring back in time to convince people that I am a powerful wizard?","BILLY MAYS HERE FOR __________.","The class field trip was completely ruined by __________.","What's a girl's best friend?","Dear Abby, I'm having some trouble with __________ and would like your advice.","When I am President of the United States, I will create the Department of __________.","What are my parents hiding from me?","What never fails to liven up the party?","What gets better with age?","__________: Good to the last drop.","I got 99 problems but __________ ain't one.","__________. It's a trap!","MTV's new reality show features eight washed-up celebrities living with __________.","What would grandma find disturbing, yet oddly charming?","What's the most emo?","During sex, I like to think about __________.","What ended my last relationship?","What's that sound?","__________. That's how I want to die.","Why am I sticky?","What's the next Happy Meal toy?","What's there a ton of in heaven?","I do not know with what weapons World War III will be fought, but World War IV will be fought with __________.","What will always get you laid?","__________: Kid-tested, mother-approved.","Why can't I sleep at night?","What's that smell?","What helps Obama unwind?","This is the way the world ends / This is the way the world ends / Not with a bang but with __________.","Coming to Broadway this season, __________: The Musical.","Anthropologists have recently discovered a primitive tribe that worships __________.","But before I kill you"," Mr. Bond, I must show you __________.","Studies show that lab rats navigate mazes 50% faster after being exposed to __________.","Next on ESPN2: The World Series of __________.","When I am a billionaire, I shall erect a 50-foot statue to commemorate __________.","In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on __________.","War! What is it good for?","What gives me uncontrollable gas?","What do old people smell like?","What am I giving up for Lent?","Alternative medicine is now embracing the curative powers of __________.","What did the US airdrop to the children of Afghanistan?","What does Dick Cheney prefer?","During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of __________.","What don't you want to find in your Chinese food?","I drink to forget __________.","__________. High five, bro.","He who controls __________ controls the world.","The CIA now interrogates enemy agents by repeatedly subjecting them to __________.","In Rome, there are whisperings that the Vatican has a secret room devoted to __________.","Science will never explain the origin of __________.","When all else fails, I can always masturbate to __________.","I learned the hard way that you can't cheer up a grieving friend with __________.","In its new tourism campaign, Detroit proudly proclaims that it has finally eliminated __________.","The socialist governments of Scandinavia have declared that access to __________ is a basic human left.","In his new self-produced album"," Kanye West raps over the sounds of __________.","What's the gift that keeps on giving?","This season on Man vs. Wild"," Bear Grylls must survive in the depths of the Amazon with only __________ and his wits. ","When I pooped"," what came out of my butt?","In the distant future"," historians will agree that __________ marked the beginning of America's decline.","What has been making life difficult at the nudist colony?","And I would have gotten away with it, too"," if it hadn't been for __________.","What brought the orgy to a grinding halt?"];
 
-                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendedores<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="agregarVendedor.html">Agregar</a></li>
-                    <li><a href="editarVendedor.html">Editar</a></li> 
-                    <li><a href="borrarVendedor.html">Borrar</a></li>                   
-                </ul> 
+  //var optVal = document.getElementById(radio1);
+  //var label =  optVal.nextSibling;
 
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="agregarFamilia.html">Agregar Familia Producto</a></li>
-                    <li><a href="agregarProducto.html">Agregar Producto</a></li> 
-                    <li><a href="editarProducto.html">Editar Producto</a></li>
-                    <li><a href="borrarProducto.html">Borrar Producto</a></li>                    
-                </ul> 
+    var countryApp = angular.module('countryApp', ['ngRoute']);
 
-                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Producto/Tienda<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="agregarProductoTienda.html">Agregar Producto a Tienda</a></li>
-                    <!--!<li><a href="borrarProductoTienda.html">Disminuir Cantidad Producto de Tienda</a></li> -->                                 
-                </ul> 
+    countryApp.config(function($locationProvider,$routeProvider){
+      $locationProvider.html5Mode(true);
+    });
 
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventarios<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="verInventarios.html">Ver Inventarios</a></li>
-                    <li><a href="verMovimientosInventario.html">Ver Movimientos</a></li>                           
-                </ul>
+    countryApp.controller('CountryCtrl', function ($scope){
+      $scope.textos = [];
+      Parse.initialize("vaTM8WidiIUScBfJmalXQUXSbRfUkicOhXmGjpKp", "9l4ZzjVhmt2cVFxAKAPTZjzMQhSsUsf7LecwjMK6");
+      
+      $scope.getElements = function()
+      {
+        var elementos = 0;
+        var lista = [];
+        while(elementos<5)
+        {
+          var num = Math.floor(Math.random() * ((blancas.length-1) - 0 + 1)) + 0;
+          if(!$scope.inList(lista,blancas[num]))
+          {
+            elementos+=1;
+            lista.push(blancas[num]);
+          }
+        }
+        $scope.textos = lista;
+        $scope.pregunta = negras[Math.floor(Math.random() * ((negras.length-1) - 0 + 1)) + 0];
+        //$scope.$apply(function() {
+         //       ;
+        //});
+      }
+      
+      $scope.inList = function(lista,elem)
+      {
+        for(i = 0; i<lista.length; i++)
+        {
+          if(lista[i]==elem)
+          {
+            return true;
+          }
+        }
+        return false;
+      }
 
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas Productos<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="verVentasGlobalesProducto.html">Globales</a></li>
-                    <li><a href="verVentasVendedorProducto.html">Por Vendedor</a></li>                           
-                </ul> 
+      $scope.getElements();      
+      $scope.values = 0;
 
-                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recibos<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="verReciboTienda.html">Tienda</a></li>
-                    <li><a href="verEstadoCuentaCliente.html">Estado Cuenta Cliente</a></li>
-                    <li><a href="cancelarRecibo.html">Cancelar Recibo</a></li>                            
-                </ul> 
-               
+      $scope.getValue = function()
+      {
+        $scope.values+=1;
+        return $scope.values-1;
+      }
 
-              </ul>             
-            </div>
-          </div>
-        </div>
-      </div>
+      $scope.getQualifications = function()
+      {
+        var tipoHumor = "HumorAbsurdo";
+        var numHumor = 0;
+        var cantRevisadas = 0;
+        for(i=0;i<$scope.textos.length*2;i++)
+        {
+          if(i==$scope.textos.length)
+          {
+            tipoHumor="HumorNegro";
+            numHumor+=1;
+          }
+          var Datos = Parse.Object.extend("Datos");
+          var datos = new Datos();
+          datos.set("CartaNegra", $scope.pregunta);
+          datos.set("CartaBlanca", $scope.textos[i%$scope.textos.length]);
+          datos.set("TipoHumor", tipoHumor);
+          datos.set("Score", Number(document.getElementsByName($scope.textos[i%$scope.textos.length])[numHumor].value)/100.0);
+          datos.save(null, {       
+              success: function(item) {
+              //Success Callback c
+              cantRevisadas+=1;
+              if (cantRevisadas == $scope.textos.length*2)
+              {
+                alert("Exito");
+                $scope.getElements();
+                $scope.$apply(function() {});
+              }
+          },
+          error: function(gameScore, error) {
+              //Failure Callback
+              console.log(error);
+          }
+          });
+        }        
+      }
+    });
+
+</script>
+
+</head>
+
+  <body ng-controller="CountryCtrl">
+    <div style="background-color:#232323" class="jumbotron">
+      <font color="white">
+        <h1 align="center" style="font-family:Neue Helvetica Std 75 Bold" color="#232323">Cards Against Hummanity</h1>
+        <font color="white">  
+        <p align="center" style="font-family:Neue Helvetica Std 75 Bold">A party game for horrible people.</p>
     </div>
-    	 
-<div class="container">
 
-       
 
-    <div class="container marketing">
+    <font color="#FF7A5A">  
+    <h1 align="left" style="font-family:Nunito">Humor Absurdo<span class="label"></span></h1>
+    <font color="black">
 
- 
-         <!-- START THE FEATURETTES -->      
+    <div class="panel panel-default">
+   <div class="panel-heading" style="font-family:Nunito" color="#00AAA0">{{pregunta}}</div>
+      <table  class="table" id="tabla" align="left">
+        <th style="font-family:Bree+Serif"><font color="#00AAA0">Opciones</th><th style="font-family:Bree+Serif"><font color="#00AAA0">Calificacion (0/100)</th>
+          <tr ng-repeat="texto in textos">
+            <td><font color="#000000">{{texto}}</td>
+            <td><input type="number" class="form-control" name="{{texto}}"></td>
+          </tr>
+      </table>
+    </div>
 
-      <!-- WORLD CUP -->   
-      <hr class="featurette-divider">
+    <font color="black">
+    <h1 align="left" style="font-family:Nunito">Humor Negro<span class="label"></span></h1>
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">TEC Cloud-Pos <span class="text-muted"> Sistema de Punto de Venta en la Nube</span></h2>
-          <p class="lead">La mejor forma de comprar por internet</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="img/store.jpg" width="500" height="500" alt="Aqui iba la foto">
-        </div>
-      </div>
-       <!-- PLAYERS --> 
-     
-      </body>
-  </html>
+    <div class="panel panel-default">
+   <div class="panel-heading" style="font-family:Nunito" color="#00AAA0">{{pregunta}}</div>
+      <table  class="table" id="tabla" align="left">
+        <th style="font-family:Bree+Serif"><font color="#00AAA0">Opciones</th><th style="font-family:Bree+Serif"><font color="#00AAA0">Calificacion (0/100)</th>
+          <tr ng-repeat="texto in textos">
+            <td><font color="#000000">{{texto}}</td>
+            <td><input type="number" name="{{texto}}" class="form-control"></td>
+          </tr>
+      </table>
+    </div>
+
+    <div align="center">
+    <button ng-click="getQualifications()" type="button" class="btn btn-primary" style="margin-top:2%;margin-bottom:2%">NEXT</button>
+    </div>
+
+  </body>
+</html>
